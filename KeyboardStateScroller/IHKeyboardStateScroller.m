@@ -1,8 +1,8 @@
 //
-//  PRKeyboardStateListener.m
-//  Postar
+//  IHKeyboardStateScroller.m
+//  IHKeyboardStateScroller
 //
-//  Created by Frasalie on 29/03/13.
+//  Created by Fraser Scott-Morrison on 29/03/13.
 //  Copyright (c) 2013 Idle Hands Apps. All rights reserved.
 //
 
@@ -15,7 +15,7 @@ static UIView *_focusView;
 static UIView *_scrollingView;
 static BOOL _isKeyboardVisible;// make public
 static int _buffer = 30;// make public
-static float _defaultAnimationDuration = 0.3;// make public
+static float _defaultAnimationDuration = 0.3;
 
 
 + (void)didChange:(NSNotification *)notification
@@ -48,8 +48,8 @@ static float _defaultAnimationDuration = 0.3;// make public
         
         //showing and docked
         if (_focusView && _scrollingView) {
-            NSLog(@"y:%f, h:%f", _focusView.frame.origin.y, _focusView.frame.size.height);
-            float diff;
+            //NSLog(@"y:%f, h:%f", _focusView.frame.origin.y, _focusView.frame.size.height);
+            float diff = 0;
             if (isPortrait) {
                 diff = keyboardFrame.origin.y - (_focusView.frame.origin.y + _focusView.frame.size.height);
             } else {
@@ -76,16 +76,6 @@ static float _defaultAnimationDuration = 0.3;// make public
         }
     }
     _isKeyboardVisible = doShow;
-}
-
-- (id)init
-{
-    if ((self = [super init])) {
-        NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
-        [center addObserver:self selector:@selector(didChange:) name:UIKeyboardWillChangeFrameNotification object:nil];
-        
-    }
-    return self;
 }
 
 + (void)registerViewToScroll:(UIView *)focusView scrollingView:(UIView *)scrollingView
