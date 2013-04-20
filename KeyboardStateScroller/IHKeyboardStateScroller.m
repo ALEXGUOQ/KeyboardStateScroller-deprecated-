@@ -11,49 +11,60 @@
 @implementation IHKeyboardStateScroller
 
 static NSNotificationCenter *_notifications;
-static UIView *_focusView;
+static UIView *_targetView;
 static UIView *_scrollingView;
-static BOOL _isKeyboardVisible;// make public
-static int _buffer = 30;// make public
-static float _defaultAnimationDuration = 0.3;
+static BOOL _isKeyboardVisible;
+static int _buffer = 30;
+static float _defaultAnimationDuration = 0.3; // If keyboard is not animating, animate the scrollingView anyway
 
 
 + (void)didChange:(NSNotification *)notification
 {
+    BOOL doScrollUp = NO;
+    BOOL isPortrait = UIInterfaceOrientationIsPortrait([[UIApplication sharedApplication] statusBarOrientation]);
+    
+    // get the keyboard & window frames
+    CGRect keyboardFrame = [[[notification userInfo] objectForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue];
+    CGRect windowFrame = [UIApplication sharedApplication].keyWindow.frame;
+    
+    // if split keyboard is being dragged, then skip notification
+    if (keyboardFrame.size.height == 0) {
+        CGRect keyboardBeginFrame = [[[notification userInfo] objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue];
+        
+        if (isPortrait) {
+            if (keyboardBeginFrame.origin.y + keyboardBeginFrame.size.height == windowFrame.size.height)
+                return;
+        } else {
+            if (keyboardBeginFrame.origin.x + keyboardBeginFrame.size.width == windowFrame.size.width)
+                return;
+        }
+    }
+    
+    // calculate if we are to scroll up the scrollingView
+    if (isPortrait) {
+        if (keyboardFrame.origin.y == 0 || (keyboardFrame.origin.y + keyboardFrame.size.height == windowFrame.size.height)) {
+            doScrollUp = YES;
+        }
+    } else {
+        if (keyboardFrame.origin.x == 0 || (keyboardFrame.origin.x + keyboardFrame.size.width == windowFrame.size.width)) {
+            doScrollUp = YES;
+        }
+    }
+    
+    // get animation duration
     float animationDuration = [[[notification userInfo] objectForKey:UIKeyboardAnimationDurationUserInfoKey] floatValue];
     if (animationDuration == 0) {
         animationDuration = _defaultAnimationDuration;
     }
     
-    BOOL doShow = NO;
-    BOOL isPortrait = UIInterfaceOrientationIsPortrait([[UIApplication sharedApplication] statusBarOrientation]);
-    
-    CGRect keyboardFrame = [[[notification userInfo] objectForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue];
-    CGRect windowFrame = [UIApplication sharedApplication].keyWindow.frame;
-    
-    if (CGRectContainsRect(windowFrame, keyboardFrame) && keyboardFrame.size.height > 0) {
-        if (isPortrait) {
-            if (keyboardFrame.origin.y == 0 || (keyboardFrame.origin.y + keyboardFrame.size.height == windowFrame.size.height)) {
-                doShow = YES;
-            }
-        } else {
-            if (keyboardFrame.origin.x == 0 || (keyboardFrame.origin.x + keyboardFrame.size.width == windowFrame.size.width)) {
-                doShow = YES;
-            }
-        }
-    }
-    
-    
-    if (doShow) {
-        
+    if (doScrollUp) {
         //showing and docked
-        if (_focusView && _scrollingView) {
-            //NSLog(@"y:%f, h:%f", _focusView.frame.origin.y, _focusView.frame.size.height);
+        if (_targetView) {
             float diff = 0;
             if (isPortrait) {
-                diff = keyboardFrame.origin.y - (_focusView.frame.origin.y + _focusView.frame.size.height);
+                diff = keyboardFrame.origin.y - (_targetView.frame.origin.y + _targetView.frame.size.height);
             } else {
-                diff = keyboardFrame.origin.x - (_focusView.frame.origin.x + _focusView.frame.size.width);
+                diff = keyboardFrame.origin.x - (_targetView.frame.origin.x + _targetView.frame.size.width);
             }
             
             if (diff < _buffer) {
@@ -64,29 +75,34 @@ static float _defaultAnimationDuration = 0.3;
         }
         
     }
-    else {
-        // hiding or splitting
-        if (_scrollingView) {
-            
-            [UIView animateWithDuration:animationDuration
-                             animations:^{
-                                 _scrollingView.transform = CGAffineTransformIdentity;
-                             }
-                             completion:^(BOOL finished){}];
-        }
+    else if (_isKeyboardVisible) {
+        // hiding, undocking or splitting
+        [UIView animateWithDuration:animationDuration animations:^{
+            _scrollingView.transform = CGAffineTransformIdentity;
+        }];
     }
-    _isKeyboardVisible = doShow;
+    
+    _isKeyboardVisible = CGRectContainsRect(windowFrame, keyboardFrame);
 }
 
-+ (void)registerViewToScroll:(UIView *)focusView scrollingView:(UIView *)scrollingView
++ (void)registerViewToScroll:(UIView *)scrollingView with:(UIView *)targetView;
 {
     if (_notifications == nil) {
+        // make sure we only add this once
         _notifications = [NSNotificationCenter defaultCenter];
         [_notifications addObserver:self selector:@selector(didChange:) name:UIKeyboardWillChangeFrameNotification object:nil];
     }
     
-    _focusView = focusView;
+    _targetView = targetView;
     _scrollingView = scrollingView;
+}
+
++ (BOOL)isKeyboardVisible {
+    return _isKeyboardVisible;
+}
+
++ (void)setBuffer:(int)buffer {
+    _buffer = buffer;
 }
 
 @end
