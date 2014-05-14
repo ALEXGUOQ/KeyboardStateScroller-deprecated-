@@ -1,14 +1,14 @@
 //
-//  IHKeyboardStateScroller.m
-//  IHKeyboardStateScroller
+//  KeyboardStateScroller.m
+//  KeyboardStateScroller
 //
 //  Created by Fraser Scott-Morrison on 29/03/13.
 //  Copyright (c) 2013 Idle Hands Apps. All rights reserved.
 //
 
-#import "IHKeyboardStateScroller.h"
+#import "KeyboardStateScroller.h"
 
-@implementation IHKeyboardStateScroller
+@implementation KeyboardStateScroller
 
 static NSNotificationCenter *_notifications;
 static UIView *_targetView;
