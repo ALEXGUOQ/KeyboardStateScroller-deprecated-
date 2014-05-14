@@ -15,6 +15,7 @@ static UIView *_targetView;
 static UIView *_scrollingView;
 static BOOL _isKeyboardVisible;
 static int _buffer = 0;
+static int _padding = 0;
 static float _defaultAnimationDuration = 0.3; // If keyboard is not animating, animate the scrollingView anyway
 static NSLayoutConstraint *_updatedConstraint;
 static float _updatedConstraintConstant;
@@ -104,7 +105,7 @@ static float _minimumScrollDuration;
                     {
                         float minimumDisplacement = fmaxf(displacement, diff);
                         _minimumScrollDuration = animationDuration * (minimumDisplacement / displacement);
-                        displacement = minimumDisplacement;
+                        displacement = minimumDisplacement - _padding;
                         delay = (animationDuration - _minimumScrollDuration);
                         animationDuration = _minimumScrollDuration;
                         break;
@@ -113,7 +114,7 @@ static float _minimumScrollDuration;
                     default:
                     {
                         float minimumDisplacement = fmaxf(displacement, diff);
-                        displacement = minimumDisplacement;
+                        displacement = minimumDisplacement - _padding;
                         break;
                     }
                 }
@@ -199,6 +200,10 @@ static float _minimumScrollDuration;
 
 + (void)setBuffer:(int)buffer {
     _buffer = buffer;
+}
+
++ (void)setScrollPadding:(int)padding {
+    _padding = padding;
 }
 
 + (void)setMinimumScrollMode:(KeyboardScroll)KeyboardScrollType {

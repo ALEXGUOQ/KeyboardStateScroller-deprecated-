@@ -29,4 +29,7 @@ typedef KeyboardScroll;
 // If the visible keyboard plus the buffer intersect with the targetView, then the scrollingView will be scrolled.  Default buffer is 30 points
 + (void)setBuffer:(int)buffer;
 
+// padding to put between the keyboard and scrolling view
++ (void)setScrollPadding:(int)padding;
+
 @end
