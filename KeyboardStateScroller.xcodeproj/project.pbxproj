@@ -10,19 +10,19 @@
 		1A759CEC17213F3900864F0A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A759CEB17213F3900864F0A /* UIKit.framework */; };
 		1A759CEE17213F3900864F0A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A759CED17213F3900864F0A /* Foundation.framework */; };
 		1A759CF017213F3900864F0A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A759CEF17213F3900864F0A /* CoreGraphics.framework */; };
-		1A759D2717213F6300864F0A /* IHKeyboardStateScroller.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A759D1317213F6300864F0A /* IHKeyboardStateScroller.m */; };
-		1A759D2817213F6300864F0A /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A759D1517213F6300864F0A /* Default-568h@2x.png */; };
-		1A759D2917213F6300864F0A /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A759D1617213F6300864F0A /* Default.png */; };
-		1A759D2A17213F6300864F0A /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A759D1717213F6300864F0A /* Default@2x.png */; };
-		1A759D2B17213F6300864F0A /* diamond_upholstery.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A759D1817213F6300864F0A /* diamond_upholstery.png */; };
-		1A759D2C17213F6300864F0A /* diamond_upholstery@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A759D1917213F6300864F0A /* diamond_upholstery@2x.png */; };
-		1A759D2D17213F6300864F0A /* IHViewController_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1A759D1A17213F6300864F0A /* IHViewController_iPad.xib */; };
-		1A759D2E17213F6300864F0A /* IHViewController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1A759D1C17213F6300864F0A /* IHViewController_iPhone.xib */; };
-		1A759D2F17213F6300864F0A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1A759D1E17213F6300864F0A /* InfoPlist.strings */; };
-		1A759D3017213F6300864F0A /* IHAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A759D2117213F6300864F0A /* IHAppDelegate.m */; };
-		1A759D3117213F6300864F0A /* IHKeyboardStateScroller-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1A759D2217213F6300864F0A /* IHKeyboardStateScroller-Info.plist */; };
-		1A759D3217213F6300864F0A /* IHViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A759D2517213F6300864F0A /* IHViewController.m */; };
-		1A759D3317213F6300864F0A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A759D2617213F6300864F0A /* main.m */; };
+		1AFC7175192381C8003B85FB /* IHKeyboardStateScroller.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AFC7174192381C8003B85FB /* IHKeyboardStateScroller.m */; };
+		1AFC71B1192382BB003B85FB /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1AFC719F192382BB003B85FB /* Default-568h@2x.png */; };
+		1AFC71B2192382BB003B85FB /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 1AFC71A0192382BB003B85FB /* Default.png */; };
+		1AFC71B3192382BB003B85FB /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1AFC71A1192382BB003B85FB /* Default@2x.png */; };
+		1AFC71B4192382BB003B85FB /* diamond_upholstery.png in Resources */ = {isa = PBXBuildFile; fileRef = 1AFC71A2192382BB003B85FB /* diamond_upholstery.png */; };
+		1AFC71B5192382BB003B85FB /* diamond_upholstery@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1AFC71A3192382BB003B85FB /* diamond_upholstery@2x.png */; };
+		1AFC71B6192382BB003B85FB /* IHViewController_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1AFC71A4192382BB003B85FB /* IHViewController_iPad.xib */; };
+		1AFC71B7192382BB003B85FB /* IHViewController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1AFC71A6192382BB003B85FB /* IHViewController_iPhone.xib */; };
+		1AFC71B8192382BB003B85FB /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1AFC71A8192382BB003B85FB /* InfoPlist.strings */; };
+		1AFC71B9192382BB003B85FB /* IHAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AFC71AB192382BB003B85FB /* IHAppDelegate.m */; };
+		1AFC71BA192382BB003B85FB /* IHKeyboardStateScroller-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1AFC71AC192382BB003B85FB /* IHKeyboardStateScroller-Info.plist */; };
+		1AFC71BB192382BB003B85FB /* IHViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AFC71AF192382BB003B85FB /* IHViewController.m */; };
+		1AFC71BC192382BB003B85FB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AFC71B0192382BB003B85FB /* main.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,23 +30,23 @@
 		1A759CEB17213F3900864F0A /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		1A759CED17213F3900864F0A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		1A759CEF17213F3900864F0A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		1A759D1217213F6300864F0A /* IHKeyboardStateScroller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IHKeyboardStateScroller.h; sourceTree = "<group>"; };
-		1A759D1317213F6300864F0A /* IHKeyboardStateScroller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IHKeyboardStateScroller.m; sourceTree = "<group>"; };
-		1A759D1517213F6300864F0A /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
-		1A759D1617213F6300864F0A /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
-		1A759D1717213F6300864F0A /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
-		1A759D1817213F6300864F0A /* diamond_upholstery.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = diamond_upholstery.png; sourceTree = "<group>"; };
-		1A759D1917213F6300864F0A /* diamond_upholstery@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "diamond_upholstery@2x.png"; sourceTree = "<group>"; };
-		1A759D1B17213F6300864F0A /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/IHViewController_iPad.xib; sourceTree = "<group>"; };
-		1A759D1D17213F6300864F0A /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/IHViewController_iPhone.xib; sourceTree = "<group>"; };
-		1A759D1F17213F6300864F0A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		1A759D2017213F6300864F0A /* IHAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IHAppDelegate.h; sourceTree = "<group>"; };
-		1A759D2117213F6300864F0A /* IHAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IHAppDelegate.m; sourceTree = "<group>"; };
-		1A759D2217213F6300864F0A /* IHKeyboardStateScroller-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "IHKeyboardStateScroller-Info.plist"; sourceTree = "<group>"; };
-		1A759D2317213F6300864F0A /* IHKeyboardStateScroller-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "IHKeyboardStateScroller-Prefix.pch"; sourceTree = "<group>"; };
-		1A759D2417213F6300864F0A /* IHViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IHViewController.h; sourceTree = "<group>"; };
-		1A759D2517213F6300864F0A /* IHViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IHViewController.m; sourceTree = "<group>"; };
-		1A759D2617213F6300864F0A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		1AFC7173192381C8003B85FB /* IHKeyboardStateScroller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IHKeyboardStateScroller.h; sourceTree = "<group>"; };
+		1AFC7174192381C8003B85FB /* IHKeyboardStateScroller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IHKeyboardStateScroller.m; sourceTree = "<group>"; };
+		1AFC719F192382BB003B85FB /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		1AFC71A0192382BB003B85FB /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		1AFC71A1192382BB003B85FB /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		1AFC71A2192382BB003B85FB /* diamond_upholstery.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = diamond_upholstery.png; sourceTree = "<group>"; };
+		1AFC71A3192382BB003B85FB /* diamond_upholstery@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "diamond_upholstery@2x.png"; sourceTree = "<group>"; };
+		1AFC71A5192382BB003B85FB /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/IHViewController_iPad.xib; sourceTree = "<group>"; };
+		1AFC71A7192382BB003B85FB /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/IHViewController_iPhone.xib; sourceTree = "<group>"; };
+		1AFC71A9192382BB003B85FB /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		1AFC71AA192382BB003B85FB /* IHAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IHAppDelegate.h; sourceTree = "<group>"; };
+		1AFC71AB192382BB003B85FB /* IHAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IHAppDelegate.m; sourceTree = "<group>"; };
+		1AFC71AC192382BB003B85FB /* IHKeyboardStateScroller-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "IHKeyboardStateScroller-Info.plist"; sourceTree = "<group>"; };
+		1AFC71AD192382BB003B85FB /* IHKeyboardStateScroller-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "IHKeyboardStateScroller-Prefix.pch"; sourceTree = "<group>"; };
+		1AFC71AE192382BB003B85FB /* IHViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IHViewController.h; sourceTree = "<group>"; };
+		1AFC71AF192382BB003B85FB /* IHViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IHViewController.m; sourceTree = "<group>"; };
+		1AFC71B0192382BB003B85FB /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,8 +66,9 @@
 		1A759CDF17213F3900864F0A = {
 			isa = PBXGroup;
 			children = (
-				1A759D1117213F6300864F0A /* KeyboardStateScroller */,
-				1A759D1417213F6300864F0A /* KeyboardStateScrollerDemo */,
+				1AFC7172192381C8003B85FB /* KeyboardStateScroller */,
+				1AFC719E192382BB003B85FB /* Example */,
+				1AFC719519238202003B85FB /* Supporting Files */,
 				1A759CEA17213F3900864F0A /* Frameworks */,
 				1A759CE917213F3900864F0A /* Products */,
 			);
@@ -91,43 +92,44 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		1A759D1117213F6300864F0A /* KeyboardStateScroller */ = {
+		1AFC7172192381C8003B85FB /* KeyboardStateScroller */ = {
 			isa = PBXGroup;
 			children = (
-				1A759D1217213F6300864F0A /* IHKeyboardStateScroller.h */,
-				1A759D1317213F6300864F0A /* IHKeyboardStateScroller.m */,
+				1AFC7173192381C8003B85FB /* IHKeyboardStateScroller.h */,
+				1AFC7174192381C8003B85FB /* IHKeyboardStateScroller.m */,
 			);
-			path = KeyboardStateScroller;
+			name = KeyboardStateScroller;
+			path = Classes;
 			sourceTree = "<group>";
 		};
-		1A759D1417213F6300864F0A /* KeyboardStateScrollerDemo */ = {
+		1AFC719519238202003B85FB /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				1A759D1517213F6300864F0A /* Default-568h@2x.png */,
-				1A759D1617213F6300864F0A /* Default.png */,
-				1A759D1717213F6300864F0A /* Default@2x.png */,
-				1A759D1817213F6300864F0A /* diamond_upholstery.png */,
-				1A759D1917213F6300864F0A /* diamond_upholstery@2x.png */,
-				1A759D1A17213F6300864F0A /* IHViewController_iPad.xib */,
-				1A759D1C17213F6300864F0A /* IHViewController_iPhone.xib */,
-				1A759D2017213F6300864F0A /* IHAppDelegate.h */,
-				1A759D2117213F6300864F0A /* IHAppDelegate.m */,
-				1A759D2417213F6300864F0A /* IHViewController.h */,
-				1A759D2517213F6300864F0A /* IHViewController.m */,
-				1A759D3417213F8D00864F0A /* Supporting Files */,
-			);
-			path = KeyboardStateScrollerDemo;
-			sourceTree = "<group>";
-		};
-		1A759D3417213F8D00864F0A /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				1A759D1E17213F6300864F0A /* InfoPlist.strings */,
-				1A759D2217213F6300864F0A /* IHKeyboardStateScroller-Info.plist */,
-				1A759D2317213F6300864F0A /* IHKeyboardStateScroller-Prefix.pch */,
-				1A759D2617213F6300864F0A /* main.m */,
+				1AFC71A8192382BB003B85FB /* InfoPlist.strings */,
+				1AFC71AC192382BB003B85FB /* IHKeyboardStateScroller-Info.plist */,
+				1AFC71AD192382BB003B85FB /* IHKeyboardStateScroller-Prefix.pch */,
+				1AFC71B0192382BB003B85FB /* main.m */,
 			);
 			name = "Supporting Files";
+			path = Example;
+			sourceTree = "<group>";
+		};
+		1AFC719E192382BB003B85FB /* Example */ = {
+			isa = PBXGroup;
+			children = (
+				1AFC719F192382BB003B85FB /* Default-568h@2x.png */,
+				1AFC71A0192382BB003B85FB /* Default.png */,
+				1AFC71A1192382BB003B85FB /* Default@2x.png */,
+				1AFC71A2192382BB003B85FB /* diamond_upholstery.png */,
+				1AFC71A3192382BB003B85FB /* diamond_upholstery@2x.png */,
+				1AFC71A4192382BB003B85FB /* IHViewController_iPad.xib */,
+				1AFC71A6192382BB003B85FB /* IHViewController_iPhone.xib */,
+				1AFC71AA192382BB003B85FB /* IHAppDelegate.h */,
+				1AFC71AB192382BB003B85FB /* IHAppDelegate.m */,
+				1AFC71AE192382BB003B85FB /* IHViewController.h */,
+				1AFC71AF192382BB003B85FB /* IHViewController.m */,
+			);
+			path = Example;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -182,15 +184,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1A759D2817213F6300864F0A /* Default-568h@2x.png in Resources */,
-				1A759D2917213F6300864F0A /* Default.png in Resources */,
-				1A759D2A17213F6300864F0A /* Default@2x.png in Resources */,
-				1A759D2B17213F6300864F0A /* diamond_upholstery.png in Resources */,
-				1A759D2C17213F6300864F0A /* diamond_upholstery@2x.png in Resources */,
-				1A759D2D17213F6300864F0A /* IHViewController_iPad.xib in Resources */,
-				1A759D2E17213F6300864F0A /* IHViewController_iPhone.xib in Resources */,
-				1A759D2F17213F6300864F0A /* InfoPlist.strings in Resources */,
-				1A759D3117213F6300864F0A /* IHKeyboardStateScroller-Info.plist in Resources */,
+				1AFC71B7192382BB003B85FB /* IHViewController_iPhone.xib in Resources */,
+				1AFC71B8192382BB003B85FB /* InfoPlist.strings in Resources */,
+				1AFC71B3192382BB003B85FB /* Default@2x.png in Resources */,
+				1AFC71B1192382BB003B85FB /* Default-568h@2x.png in Resources */,
+				1AFC71B2192382BB003B85FB /* Default.png in Resources */,
+				1AFC71B6192382BB003B85FB /* IHViewController_iPad.xib in Resources */,
+				1AFC71B5192382BB003B85FB /* diamond_upholstery@2x.png in Resources */,
+				1AFC71B4192382BB003B85FB /* diamond_upholstery.png in Resources */,
+				1AFC71BA192382BB003B85FB /* IHKeyboardStateScroller-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -201,36 +203,36 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1A759D2717213F6300864F0A /* IHKeyboardStateScroller.m in Sources */,
-				1A759D3017213F6300864F0A /* IHAppDelegate.m in Sources */,
-				1A759D3217213F6300864F0A /* IHViewController.m in Sources */,
-				1A759D3317213F6300864F0A /* main.m in Sources */,
+				1AFC7175192381C8003B85FB /* IHKeyboardStateScroller.m in Sources */,
+				1AFC71B9192382BB003B85FB /* IHAppDelegate.m in Sources */,
+				1AFC71BC192382BB003B85FB /* main.m in Sources */,
+				1AFC71BB192382BB003B85FB /* IHViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		1A759D1A17213F6300864F0A /* IHViewController_iPad.xib */ = {
+		1AFC71A4192382BB003B85FB /* IHViewController_iPad.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
-				1A759D1B17213F6300864F0A /* en */,
+				1AFC71A5192382BB003B85FB /* en */,
 			);
 			name = IHViewController_iPad.xib;
 			sourceTree = "<group>";
 		};
-		1A759D1C17213F6300864F0A /* IHViewController_iPhone.xib */ = {
+		1AFC71A6192382BB003B85FB /* IHViewController_iPhone.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
-				1A759D1D17213F6300864F0A /* en */,
+				1AFC71A7192382BB003B85FB /* en */,
 			);
 			name = IHViewController_iPhone.xib;
 			sourceTree = "<group>";
 		};
-		1A759D1E17213F6300864F0A /* InfoPlist.strings */ = {
+		1AFC71A8192382BB003B85FB /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				1A759D1F17213F6300864F0A /* en */,
+				1AFC71A9192382BB003B85FB /* en */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -300,8 +302,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "KeyboardStateScrollerDemo/IHKeyboardStateScroller-Prefix.pch";
-				INFOPLIST_FILE = "KeyboardStateScrollerDemo/IHKeyboardStateScroller-Info.plist";
+				GCC_PREFIX_HEADER = "Example/IHKeyboardStateScroller-Prefix.pch";
+				INFOPLIST_FILE = "Example/IHKeyboardStateScroller-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -311,8 +313,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "KeyboardStateScrollerDemo/IHKeyboardStateScroller-Prefix.pch";
-				INFOPLIST_FILE = "KeyboardStateScrollerDemo/IHKeyboardStateScroller-Info.plist";
+				GCC_PREFIX_HEADER = "Example/IHKeyboardStateScroller-Prefix.pch";
+				INFOPLIST_FILE = "Example/IHKeyboardStateScroller-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
