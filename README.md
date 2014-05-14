@@ -29,7 +29,7 @@ Only one scrollingView and targetView can be registered at a time.
 
 ## Author
 
-* Fraser Scott-Morrison (lasereraser@gmail.com)
+* Fraser Scott-Morrison (fraserscottmorrison@me.com)
 
 ## Do To:
 
