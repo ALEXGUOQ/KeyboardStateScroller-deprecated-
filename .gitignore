@@ -16,3 +16,7 @@ DerivedData/
 
 
 .DS_Store
+
+KeyboardStateScroller.xcodeproj/project.xcworkspace/xcuserdata/frasalie.xcuserdatad/UserInterfaceState.xcuserstate
+
+*.xcuserstate
