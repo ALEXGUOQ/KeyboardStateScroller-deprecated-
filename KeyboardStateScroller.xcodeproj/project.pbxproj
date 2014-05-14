@@ -10,7 +10,6 @@
 		1A759CEC17213F3900864F0A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A759CEB17213F3900864F0A /* UIKit.framework */; };
 		1A759CEE17213F3900864F0A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A759CED17213F3900864F0A /* Foundation.framework */; };
 		1A759CF017213F3900864F0A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A759CEF17213F3900864F0A /* CoreGraphics.framework */; };
-		1AFC7175192381C8003B85FB /* IHKeyboardStateScroller.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AFC7174192381C8003B85FB /* IHKeyboardStateScroller.m */; };
 		1AFC71B1192382BB003B85FB /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1AFC719F192382BB003B85FB /* Default-568h@2x.png */; };
 		1AFC71B2192382BB003B85FB /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 1AFC71A0192382BB003B85FB /* Default.png */; };
 		1AFC71B3192382BB003B85FB /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1AFC71A1192382BB003B85FB /* Default@2x.png */; };
@@ -23,6 +22,7 @@
 		1AFC71BA192382BB003B85FB /* IHKeyboardStateScroller-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1AFC71AC192382BB003B85FB /* IHKeyboardStateScroller-Info.plist */; };
 		1AFC71BB192382BB003B85FB /* IHViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AFC71AF192382BB003B85FB /* IHViewController.m */; };
 		1AFC71BC192382BB003B85FB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AFC71B0192382BB003B85FB /* main.m */; };
+		1AFC71C0192385F3003B85FB /* KeyboardStateScroller.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AFC71BF192385F3003B85FB /* KeyboardStateScroller.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,8 +30,6 @@
 		1A759CEB17213F3900864F0A /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		1A759CED17213F3900864F0A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		1A759CEF17213F3900864F0A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		1AFC7173192381C8003B85FB /* IHKeyboardStateScroller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IHKeyboardStateScroller.h; sourceTree = "<group>"; };
-		1AFC7174192381C8003B85FB /* IHKeyboardStateScroller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IHKeyboardStateScroller.m; sourceTree = "<group>"; };
 		1AFC719F192382BB003B85FB /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		1AFC71A0192382BB003B85FB /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		1AFC71A1192382BB003B85FB /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
@@ -47,6 +45,8 @@
 		1AFC71AE192382BB003B85FB /* IHViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IHViewController.h; sourceTree = "<group>"; };
 		1AFC71AF192382BB003B85FB /* IHViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IHViewController.m; sourceTree = "<group>"; };
 		1AFC71B0192382BB003B85FB /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		1AFC71BE192385F3003B85FB /* KeyboardStateScroller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeyboardStateScroller.h; sourceTree = "<group>"; };
+		1AFC71BF192385F3003B85FB /* KeyboardStateScroller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeyboardStateScroller.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,8 +66,8 @@
 		1A759CDF17213F3900864F0A = {
 			isa = PBXGroup;
 			children = (
-				1AFC7172192381C8003B85FB /* KeyboardStateScroller */,
-				1AFC719E192382BB003B85FB /* Example */,
+				1AFC71BD192385F3003B85FB /* KeyboardStateScroller */,
+				1AFC719E192382BB003B85FB /* KeyboardStateScrollerDemo */,
 				1AFC719519238202003B85FB /* Supporting Files */,
 				1A759CEA17213F3900864F0A /* Frameworks */,
 				1A759CE917213F3900864F0A /* Products */,
@@ -92,16 +92,6 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		1AFC7172192381C8003B85FB /* KeyboardStateScroller */ = {
-			isa = PBXGroup;
-			children = (
-				1AFC7173192381C8003B85FB /* IHKeyboardStateScroller.h */,
-				1AFC7174192381C8003B85FB /* IHKeyboardStateScroller.m */,
-			);
-			name = KeyboardStateScroller;
-			path = Classes;
-			sourceTree = "<group>";
-		};
 		1AFC719519238202003B85FB /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
@@ -114,7 +104,7 @@
 			path = Example;
 			sourceTree = "<group>";
 		};
-		1AFC719E192382BB003B85FB /* Example */ = {
+		1AFC719E192382BB003B85FB /* KeyboardStateScrollerDemo */ = {
 			isa = PBXGroup;
 			children = (
 				1AFC719F192382BB003B85FB /* Default-568h@2x.png */,
@@ -129,7 +119,18 @@
 				1AFC71AE192382BB003B85FB /* IHViewController.h */,
 				1AFC71AF192382BB003B85FB /* IHViewController.m */,
 			);
+			name = KeyboardStateScrollerDemo;
 			path = Example;
+			sourceTree = "<group>";
+		};
+		1AFC71BD192385F3003B85FB /* KeyboardStateScroller */ = {
+			isa = PBXGroup;
+			children = (
+				1AFC71BE192385F3003B85FB /* KeyboardStateScroller.h */,
+				1AFC71BF192385F3003B85FB /* KeyboardStateScroller.m */,
+			);
+			name = KeyboardStateScroller;
+			path = Classes;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -203,9 +204,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1AFC7175192381C8003B85FB /* IHKeyboardStateScroller.m in Sources */,
 				1AFC71B9192382BB003B85FB /* IHAppDelegate.m in Sources */,
 				1AFC71BC192382BB003B85FB /* main.m in Sources */,
+				1AFC71C0192385F3003B85FB /* KeyboardStateScroller.m in Sources */,
 				1AFC71BB192382BB003B85FB /* IHViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

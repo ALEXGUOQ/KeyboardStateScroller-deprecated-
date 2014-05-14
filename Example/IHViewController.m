@@ -7,7 +7,7 @@
 //
 
 #import "IHViewController.h"
-#import "IHKeyboardStateScroller.h"
+#import "KeyboardStateScroller.h"
 
 @interface IHViewController ()
 
@@ -22,7 +22,7 @@
     
     self.scrollingView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"diamond_upholstery"]];
     
-    [IHKeyboardStateScroller registerViewToScroll:self.scrollingView with:self.focusView];
+    [KeyboardStateScroller registerViewToScroll:self.scrollingView with:self.focusView];
     
 }
 
