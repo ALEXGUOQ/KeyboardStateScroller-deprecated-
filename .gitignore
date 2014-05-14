@@ -23,3 +23,7 @@ KeyboardStateScroller.xcodeproj/project.xcworkspace/xcuserdata/frasalie.xcuserda
 .DS_Store
 =======
 >>>>>>> Improvement to calculation for whether to scroll the view or not
+
+*.xcuserstate
+
+*.xccheckout
