@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'KeyboardStateScroller'
-  s.version          = '0.1.0'
+  s.version          = '0.1.1'
   s.summary          = 'KeyboardStateScroller is a keyboard listener that will scroll any UIView up if the keyboard is being shown, and vice versa'
   s.description      = <<-DESC
                        Two views are registered with KeyboardStateScroller, a scrollingView and a targetView.  If the targetView's frame will be intersected by the keyboard, then the scrollingView will be scrolled up the same distance and speed as the keyboard
