@@ -1,6 +1,6 @@
 //
-//  IHKeyboardStateScroller.h
-//  IHKeyboardStateScroller
+//  KeyboardStateScroller.h
+//  KeyboardStateScroller
 //
 //  Created by Fraser Scott-Morrison on 29/03/13.
 //  Copyright (c) 2013 Idle Hands Apps. All rights reserved.
@@ -15,7 +15,7 @@ enum KeyboardScroll {
 }
 typedef KeyboardScroll;
 
-@interface IHKeyboardStateScroller : NSObject
+@interface KeyboardStateScroller : NSObject
 
 + (void)setMinimumScrollMode:(KeyboardScroll)KeyboardScrollType;
 

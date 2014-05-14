@@ -8,22 +8,9 @@ DerivedData/
 .settings/
 .DS_Store
 
-# Project files, i.e. `.project`, `.actionScriptProperties` and `.flexProperties`
-# should NOT be excluded as they contain compiler settings and other important
-# information for Eclipse / Flash Builder.
-
-
-*.xcuserstate
-
-KeyboardStateScroller.xcodeproj/xcuserdata/frasalie.xcuserdatad/xcdebugger/Breakpoints.xcbkptlist
-
-KeyboardStateScroller.xcodeproj/project.xcworkspace/xcuserdata/frasalie.xcuserdatad/UserInterfaceState.xcuserstate
-<<<<<<< HEAD
-
-.DS_Store
-=======
->>>>>>> Improvement to calculation for whether to scroll the view or not
+*.xcbkptlist
 
 *.xcuserstate
 
 *.xccheckout
+
