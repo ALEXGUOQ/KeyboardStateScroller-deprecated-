@@ -21,7 +21,7 @@ typedef KeyboardScroll;
 
 + (void)setViewToScroll:(UIView *)scrollingView withTarget:(UIView *)targetView;
 + (void)addTarget:(UIView *)targetView;
-
++ (void)removeTarget:(UIView *)targetView;
 + (void)removeAll;
 
 // utility method to find out if the keyboard is visible. Works for docked, undocked and split keyboards

@@ -211,8 +211,12 @@ static float _minimumScrollDuration;
 
 + (void)addTarget:(UIView *)targetView;
 {
-    
     [_targetViews addObject:targetView];
+}
+
++ (void)removeTarget:(UIView *)targetView;
+{
+    [_targetViews removeObject:targetView];
 }
 
 + (void)removeAll {
