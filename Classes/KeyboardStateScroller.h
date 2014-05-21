@@ -19,17 +19,18 @@ typedef KeyboardScroll;
 
 + (void)setMinimumScrollMode:(KeyboardScroll)KeyboardScrollType;
 
-+ (void)registerViewToScroll:(UIView *)scrollingView with:(UIView *)targetView;
++ (void)setViewToScroll:(UIView *)scrollingView withTarget:(UIView *)targetView;
++ (void)addTarget:(UIView *)targetView;
 
-+ (void)deregister;
++ (void)removeAll;
 
-// utility method to find out if the keyboard is visible.  Works for docked, undocked and split keyboards
+// utility method to find out if the keyboard is visible. Works for docked, undocked and split keyboards
 + (BOOL)isKeyboardVisible;
 
-// If the visible keyboard plus the buffer intersect with the targetView, then the scrollingView will be scrolled.  Default buffer is 30 points
+// If the visible keyboard plus the buffer intersect with the targetView, then the scrollingView will be scrolled. Default buffer is 0 points
 + (void)setBuffer:(int)buffer;
 
-// padding to put between the keyboard and scrolling view
+// padding to put between the keyboard and scrolling view. Default padding is 0 points
 + (void)setScrollPadding:(int)padding;
 
 @end

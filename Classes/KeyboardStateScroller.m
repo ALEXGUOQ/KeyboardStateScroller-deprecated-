@@ -10,15 +10,16 @@
 
 @implementation KeyboardStateScroller
 
-static NSNotificationCenter *_notifications;
-static UIView *_targetView;
+static NSMutableArray *_targetViews;
 static UIView *_scrollingView;
+static NSMutableArray *_updatedConstraints;
+static NSMutableArray *_updatedConstraintConstants;
+
 static BOOL _isKeyboardVisible;
+static BOOL _scrollViewUsesAutoLayout;
 static int _buffer = 0;
 static int _padding = 0;
 static float _defaultAnimationDuration = 0.3; // If keyboard is not animating, animate the scrollingView anyway
-static NSLayoutConstraint *_updatedConstraint;
-static float _updatedConstraintConstant;
 static KeyboardScroll _keyboardScrollType = KeyboardScrollMinimum;
 static float _minimumScrollDuration;
 
@@ -62,80 +63,90 @@ static float _minimumScrollDuration;
     }
     
     if (isKeyBoardShowing) {
-        
-        //showing and docked
-        if (_targetView) {
-            float diff = 0;
-            CGPoint originInWindow = [_targetView.superview convertPoint:_targetView.frame.origin toView:nil];
-            switch ([[UIApplication sharedApplication] statusBarOrientation]) {
-                case UIInterfaceOrientationPortrait:
-                    diff = keyboardFrame.origin.y;
-                    diff -= (originInWindow.y + _targetView.frame.size.height);
-                    break;
-                case UIInterfaceOrientationPortraitUpsideDown:
-                    diff = windowFrame.size.height - keyboardFrame.size.height;
-                    originInWindow.y = windowFrame.size.height - originInWindow.y;
-                    diff -= (originInWindow.y + _targetView.frame.size.height);
-                    break;
-                case UIInterfaceOrientationLandscapeLeft:
-                    diff = keyboardFrame.origin.x;
-                    diff -= (originInWindow.x + _targetView.frame.size.height);
-                    break;
-                case UIInterfaceOrientationLandscapeRight:
-                    diff = windowFrame.size.width - keyboardFrame.size.width;
-                    originInWindow.x = windowFrame.size.width - originInWindow.x;
-                    diff -= (originInWindow.x + _targetView.frame.size.height);
-                default:
-                    break;
-            }
-            
-            
-            if (diff < _buffer) {
-                
-                float displacement = ( isPortrait ? -keyboardFrame.size.height : -keyboardFrame.size.width);
-                float delay = 0;
-                
-                switch (_keyboardScrollType) {
-                    case KeyboardScrollMaximum:
-                    {
-                        _minimumScrollDuration = animationDuration;
+        for (int i = 0; i < _targetViews.count; i++) {
+            UIView *targetView = [_targetViews objectAtIndex:i];
+            //showing and docked
+            if (targetView) {
+                float diff = 0;
+                CGPoint originInWindow = [targetView.superview convertPoint:targetView.frame.origin toView:nil];
+                switch ([[UIApplication sharedApplication] statusBarOrientation]) {
+                    case UIInterfaceOrientationPortrait:
+                        diff = keyboardFrame.origin.y;
+                        diff -= (originInWindow.y + targetView.frame.size.height);
                         break;
-                    }
-                    case KeyboardScrollMinimumDelayed:
-                    {
-                        float minimumDisplacement = fmaxf(displacement, diff);
-                        _minimumScrollDuration = animationDuration * (minimumDisplacement / displacement);
-                        displacement = minimumDisplacement - _padding;
-                        delay = (animationDuration - _minimumScrollDuration);
-                        animationDuration = _minimumScrollDuration;
+                    case UIInterfaceOrientationPortraitUpsideDown:
+                        diff = windowFrame.size.height - keyboardFrame.size.height;
+                        originInWindow.y = windowFrame.size.height - originInWindow.y;
+                        diff -= (originInWindow.y + targetView.frame.size.height);
                         break;
-                    }
-                    case KeyboardScrollMinimum:
+                    case UIInterfaceOrientationLandscapeLeft:
+                        diff = keyboardFrame.origin.x;
+                        diff -= (originInWindow.x + targetView.frame.size.height);
+                        break;
+                    case UIInterfaceOrientationLandscapeRight:
+                        diff = windowFrame.size.width - keyboardFrame.size.width;
+                        originInWindow.x = windowFrame.size.width - originInWindow.x;
+                        diff -= (originInWindow.x + targetView.frame.size.height);
                     default:
-                    {
-                        float minimumDisplacement = fmaxf(displacement, diff);
-                        displacement = minimumDisplacement - _padding;
                         break;
-                    }
                 }
                 
-                [UIView animateWithDuration:animationDuration
-                                      delay:delay
-                                    options:UIViewAnimationOptionCurveLinear
-                                 animations:^{
-                                     _scrollingView.transform = CGAffineTransformMakeTranslation(0, displacement);
-                                     
-                                     for (NSLayoutConstraint *constraint in [_scrollingView.superview constraints]) {
-                                         if (constraint.secondAttribute == NSLayoutAttributeCenterY) {
-                                             _updatedConstraint = constraint;
-                                             _updatedConstraintConstant = constraint.constant;
-                                             constraint.constant -= displacement;
-                                             break;
+                
+                if (diff < _buffer) {
+                    
+                    float displacement = ( isPortrait ? -keyboardFrame.size.height : -keyboardFrame.size.width);
+                    float delay = 0;
+                    
+                    switch (_keyboardScrollType) {
+                        case KeyboardScrollMaximum:
+                        {
+                            _minimumScrollDuration = animationDuration;
+                            break;
+                        }
+                        case KeyboardScrollMinimumDelayed:
+                        {
+                            float minimumDisplacement = fmaxf(displacement, diff);
+                            _minimumScrollDuration = animationDuration * (minimumDisplacement / displacement);
+                            displacement = minimumDisplacement - _padding;
+                            delay = (animationDuration - _minimumScrollDuration);
+                            animationDuration = _minimumScrollDuration;
+                            break;
+                        }
+                        case KeyboardScrollMinimum:
+                        default:
+                        {
+                            float minimumDisplacement = fmaxf(displacement, diff);
+                            displacement = minimumDisplacement - _padding;
+                            break;
+                        }
+                    }
+                    
+                    if (_scrollViewUsesAutoLayout) { // if view uses constrains
+                        for (NSLayoutConstraint *constraint in _scrollingView.superview.constraints) {
+                            if (constraint.secondItem == _scrollingView && (constraint.secondAttribute == NSLayoutAttributeCenterY || constraint.secondAttribute == NSLayoutAttributeTop || constraint.secondAttribute == NSLayoutAttributeBottom)) {
+                                [_updatedConstraints addObject:constraint];
+                                [_updatedConstraintConstants addObject:[NSNumber numberWithFloat:constraint.constant]];
+                                constraint.constant -= displacement;
+                                break;
+                            }
+                        }
+                        [_scrollingView.superview setNeedsUpdateConstraints];
+                    }
+
+                    [UIView animateWithDuration:animationDuration
+                                          delay:delay
+                                        options:UIViewAnimationOptionCurveLinear
+                                     animations:^{
+                                         if (_scrollViewUsesAutoLayout) {
+                                             [_scrollingView.superview layoutIfNeeded]; // to animate constraint changes
+                                         }
+                                         else {
+                                             _scrollingView.transform = CGAffineTransformMakeTranslation(0, displacement);
                                          }
                                      }
-                                 }
-                                 completion:nil];
-                
+                                     completion:nil];
+                    
+                }
             }
         }
         
@@ -161,37 +172,52 @@ static float _minimumScrollDuration;
             }
         }
         
-        [UIView animateWithDuration:animationDuration animations:^{
-            _scrollingView.transform = CGAffineTransformIdentity;
-            
-            if (_updatedConstraint) {
-                _updatedConstraint.constant = _updatedConstraintConstant;
+        // restore state
+        if (_scrollViewUsesAutoLayout) { // if view uses constrains
+            for (int i = 0; i < _updatedConstraints.count; i++) {
+                NSLayoutConstraint *updatedConstraint = [_updatedConstraints objectAtIndex:i];
+                float updatedConstraintConstant = [[_updatedConstraintConstants objectAtIndex:i] floatValue];
+                updatedConstraint.constant = updatedConstraintConstant;
+                
             }
-        }];
+            [_scrollingView setNeedsUpdateConstraints]; // to animate constraint changes
+        }
         
+        [UIView animateWithDuration:animationDuration animations:^{
+            if (_scrollViewUsesAutoLayout) {
+                [_scrollingView.superview layoutIfNeeded];
+            }
+            else {
+                _scrollingView.transform = CGAffineTransformIdentity;
+            }
+        } completion:^(BOOL finished){
+            [_updatedConstraints removeAllObjects];
+            [_updatedConstraintConstants removeAllObjects];
+        }];
     }
     
     _isKeyboardVisible = CGRectContainsRect(windowFrame, keyboardFrame);
 }
 
-+ (void)registerViewToScroll:(UIView *)scrollingView with:(UIView *)targetView;
++ (void)setViewToScroll:(UIView *)scrollingView withTarget:(UIView *)targetView;
 {
-    if (_notifications == nil) {
-        // make sure we only add this once
-        _notifications = [NSNotificationCenter defaultCenter];
-        //[_notifications addObserver:self selector:@selector(didRotate:) name:UIDeviceOrientationDidChangeNotification object:nil];
-        [_notifications addObserver:self selector:@selector(didChange:) name:UIKeyboardWillChangeFrameNotification object:nil];
-    }
+    [self init];
     
-    _targetView = targetView;
+    [_targetViews removeAllObjects];
+    [_targetViews addObject:targetView];
     _scrollingView = scrollingView;
+    _scrollViewUsesAutoLayout = _scrollingView.superview.constraints.count > 0;
 }
 
-+ (void)deregister {
-    _targetView = nil;
++ (void)addTarget:(UIView *)targetView;
+{
+    
+    [_targetViews addObject:targetView];
+}
+
++ (void)removeAll {
+    _targetViews = nil;
     _scrollingView = nil;
-    _updatedConstraint = nil;
-    _updatedConstraintConstant = 0;
 }
 
 + (BOOL)isKeyboardVisible {
@@ -208,6 +234,17 @@ static float _minimumScrollDuration;
 
 + (void)setMinimumScrollMode:(KeyboardScroll)KeyboardScrollType {
     _keyboardScrollType = KeyboardScrollType;
+}
+
++ (void)init {
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        // make sure we only add this once
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didChange:) name:UIKeyboardWillChangeFrameNotification object:nil];
+        _targetViews = [[NSMutableArray alloc] init];
+        _updatedConstraints = [[NSMutableArray alloc] init];
+        _updatedConstraintConstants = [[NSMutableArray alloc] init];
+    });
 }
 
 @end

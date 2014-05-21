@@ -22,7 +22,7 @@
     
     self.scrollingView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"diamond_upholstery"]];
     
-    [KeyboardStateScroller registerViewToScroll:self.scrollingView with:self.focusView];
+    [KeyboardStateScroller setViewToScroll:self.scrollingView withTarget:self.focusView];
     
 }
 

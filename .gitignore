@@ -20,3 +20,9 @@ DerivedData/
 KeyboardStateScroller.xcodeproj/project.xcworkspace/xcuserdata/frasalie.xcuserdatad/UserInterfaceState.xcuserstate
 
 *.xcuserstate
+
+KeyboardStateScroller.xcodeproj/xcuserdata/fraser.xcuserdatad/xcschemes/xcschememanagement.plist
+
+*.xcscheme
+
+*.xcsettings
