@@ -1,7 +1,12 @@
+
+An elegant solution for keeping any UIView visible when the keyboard is being shown
+
 ## Description
 
-KeyboardStateScroller is a keyboard listener that will scroll any UIView up if the keyboard is being shown, and vice versa.  
-Two views are registered with KeyboardStateScroller, a scrollingView and a targetView.  If the targetView's frame will be intersected by the keyboard, then the scrollingView will be scrolled up the same distance and speed as the keyboard.
+KeyboardStateScroller is a keyboard listener that will translate any UIView up if the keyboard is being shown, and vice versa.  
+Two views are registered with KeyboardStateScroller, the UIView to translate and one or more target UIViews.  If a targetView's frame will be intersected by the keyboard, then the translating View will animate up just above the keyboard.
+
+Although called a scroller, no UIScrollView is used. If Autolayout is used then the constraints are animated, otherwise a CGAffine translation is done.
 
 ## Features:
 
@@ -9,23 +14,28 @@ KeyboardStateScroller works with iPhone and iPad keyboards and accommodates spli
 
 ## How to use:
 
-To register a view to scroll
+To set a view to scroll
 ```objective-c
-[IHKeyboardStateListener registerViewToScroll:(UIView *)scrollingView with:(UIView *)targetView];
+[IHKeyboardStateListener setViewToScroll:(UIView *)scrollingView with:(UIView *)targetView];
+```
+To add another target
+[IHKeyboardStateListener addTarget:(UIView *)targetView];
 ```
 
-Parameters    
+Parameters   
 ```(UIView *)scrollingView```   The view to scroll, usually the background view
-```(UIView *)targetView```      If this targetView's frame will be intersected by the keyboard, then the scrollingView will be scrolled.
+```(UIView *)targetView```      If a targetView's frame will be intersected by the keyboard, then the scrollingView will be scrolled.
 
-Other methods    
-```(BOOL)isKeyboardVisible```   A utility method to find out if the keyboard is visible  
-```(void)setBuffer:(int)buffer``` Scrolling will be triggered if the keyboard is within [buffer] points of the targetView's frame.  Default buffer is 30.
+Optional methods    
+```(BOOL)isKeyboardVisible```   A convenience method to check if the keyboard is visible  
+```(void)setBuffer:(int)buffer``` Scrolling will be triggered if the keyboard is within [buffer] points of the targetView's frame.  Default buffer is 0
+```(void)setScrollPadding:(int)buffer``` The padding to put between the keyboard and scrolling view.  Default padding is 0
+## Similar Keyboard avoiding solutions:
 
-## Restrictions:
-
-KeyboardStateScroller doesn't play nice with AutoLayout's vertical constraints  
-Only one scrollingView and targetView can be registered at a time.
+https://github.com/michaeltyson/TPKeyboardAvoiding (UIScrollView based)
+https://github.com/kirpichenko/EKKeyboardAvoiding (UIScrollView based)
+https://github.com/robbdimitrov/RDVKeyboardAvoiding (UIScrollView based)
+https://github.com/danielamitay/DAKeyboardControl (looks interesting)
 
 ## Author
 
@@ -34,4 +44,4 @@ Only one scrollingView and targetView can be registered at a time.
 ## Do To:
 
 * Improve demo project
-* Add secondary scrolling technique: scrollingView  scrolls as little as possible but enough for the targetView to remain unobscured by the keyboard 
+* Gif demo
