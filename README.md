@@ -24,12 +24,12 @@ To add another target
 ```
 
 Parameters   
-```(UIView *)scrollingView```   The view to scroll, usually the background view
+```(UIView *)scrollingView```   The view to scroll, usually the background view  
 ```(UIView *)targetView```      If a targetView's frame will be intersected by the keyboard, then the scrollingView will be scrolled.
 
 Optional methods    
 ```(BOOL)isKeyboardVisible```   A convenience method to check if the keyboard is visible  
-```(void)setBuffer:(int)buffer``` Scrolling will be triggered if the keyboard is within [buffer] points of the targetView's frame.  Default buffer is 0
+```(void)setBuffer:(int)buffer``` Scrolling will be triggered if the keyboard is within [buffer] points of the targetView's frame.  Default buffer is 0  
 ```(void)setScrollPadding:(int)buffer``` The padding to put between the keyboard and scrolling view.  Default padding is 0
 ## Similar Keyboard avoiding solutions:
 
