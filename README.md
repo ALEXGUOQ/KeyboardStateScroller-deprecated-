@@ -19,6 +19,7 @@ To set a view to scroll
 [IHKeyboardStateListener setViewToScroll:(UIView *)scrollingView with:(UIView *)targetView];
 ```
 To add another target
+```objective-c
 [IHKeyboardStateListener addTarget:(UIView *)targetView];
 ```
 
