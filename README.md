@@ -33,9 +33,9 @@ Optional methods
 ```(void)setScrollPadding:(int)buffer``` The padding to put between the keyboard and scrolling view.  Default padding is 0
 ## Similar Keyboard avoiding solutions:
 
-https://github.com/michaeltyson/TPKeyboardAvoiding (UIScrollView based)
-https://github.com/kirpichenko/EKKeyboardAvoiding (UIScrollView based)
-https://github.com/robbdimitrov/RDVKeyboardAvoiding (UIScrollView based)
+https://github.com/michaeltyson/TPKeyboardAvoiding (UIScrollView based)  
+https://github.com/kirpichenko/EKKeyboardAvoiding (UIScrollView based)  
+https://github.com/robbdimitrov/RDVKeyboardAvoiding (UIScrollView based)  
 https://github.com/danielamitay/DAKeyboardControl (looks interesting)
 
 ## Author
