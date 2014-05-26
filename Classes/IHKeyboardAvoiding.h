@@ -1,6 +1,6 @@
 //
-//  KeyboardStateScroller.h
-//  KeyboardStateScroller
+//  IHKeyboardAvoiding.h
+//  IHKeyboardAvoiding
 //
 //  Created by Fraser Scott-Morrison on 29/03/13.
 //  Copyright (c) 2013 Idle Hands Apps. All rights reserved.

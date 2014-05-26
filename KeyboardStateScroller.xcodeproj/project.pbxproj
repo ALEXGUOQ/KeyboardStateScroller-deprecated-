@@ -22,7 +22,7 @@
 		1AFC71BA192382BB003B85FB /* IHKeyboardStateScroller-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1AFC71AC192382BB003B85FB /* IHKeyboardStateScroller-Info.plist */; };
 		1AFC71BB192382BB003B85FB /* IHViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AFC71AF192382BB003B85FB /* IHViewController.m */; };
 		1AFC71BC192382BB003B85FB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AFC71B0192382BB003B85FB /* main.m */; };
-		1AFC71C0192385F3003B85FB /* KeyboardStateScroller.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AFC71BF192385F3003B85FB /* KeyboardStateScroller.m */; };
+		4C0593D91932D1D800BFD714 /* IHKeyboardAvoiding.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C0593D81932D1D800BFD714 /* IHKeyboardAvoiding.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,8 +45,8 @@
 		1AFC71AE192382BB003B85FB /* IHViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IHViewController.h; sourceTree = "<group>"; };
 		1AFC71AF192382BB003B85FB /* IHViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IHViewController.m; sourceTree = "<group>"; };
 		1AFC71B0192382BB003B85FB /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		1AFC71BE192385F3003B85FB /* KeyboardStateScroller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeyboardStateScroller.h; sourceTree = "<group>"; };
-		1AFC71BF192385F3003B85FB /* KeyboardStateScroller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeyboardStateScroller.m; sourceTree = "<group>"; };
+		4C0593D71932D1D800BFD714 /* IHKeyboardAvoiding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IHKeyboardAvoiding.h; sourceTree = "<group>"; };
+		4C0593D81932D1D800BFD714 /* IHKeyboardAvoiding.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IHKeyboardAvoiding.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,8 +66,8 @@
 		1A759CDF17213F3900864F0A = {
 			isa = PBXGroup;
 			children = (
-				1AFC71BD192385F3003B85FB /* KeyboardStateScroller */,
-				1AFC719E192382BB003B85FB /* KeyboardStateScrollerDemo */,
+				1AFC71BD192385F3003B85FB /* IHKeyboardAvoiding */,
+				1AFC719E192382BB003B85FB /* IHKeyboardAvoidingDemo */,
 				1AFC719519238202003B85FB /* Supporting Files */,
 				1A759CEA17213F3900864F0A /* Frameworks */,
 				1A759CE917213F3900864F0A /* Products */,
@@ -104,7 +104,7 @@
 			path = Example;
 			sourceTree = "<group>";
 		};
-		1AFC719E192382BB003B85FB /* KeyboardStateScrollerDemo */ = {
+		1AFC719E192382BB003B85FB /* IHKeyboardAvoidingDemo */ = {
 			isa = PBXGroup;
 			children = (
 				1AFC719F192382BB003B85FB /* Default-568h@2x.png */,
@@ -119,17 +119,17 @@
 				1AFC71AE192382BB003B85FB /* IHViewController.h */,
 				1AFC71AF192382BB003B85FB /* IHViewController.m */,
 			);
-			name = KeyboardStateScrollerDemo;
+			name = IHKeyboardAvoidingDemo;
 			path = Example;
 			sourceTree = "<group>";
 		};
-		1AFC71BD192385F3003B85FB /* KeyboardStateScroller */ = {
+		1AFC71BD192385F3003B85FB /* IHKeyboardAvoiding */ = {
 			isa = PBXGroup;
 			children = (
-				1AFC71BE192385F3003B85FB /* KeyboardStateScroller.h */,
-				1AFC71BF192385F3003B85FB /* KeyboardStateScroller.m */,
+				4C0593D71932D1D800BFD714 /* IHKeyboardAvoiding.h */,
+				4C0593D81932D1D800BFD714 /* IHKeyboardAvoiding.m */,
 			);
-			name = KeyboardStateScroller;
+			name = IHKeyboardAvoiding;
 			path = Classes;
 			sourceTree = "<group>";
 		};
@@ -206,7 +206,7 @@
 			files = (
 				1AFC71B9192382BB003B85FB /* IHAppDelegate.m in Sources */,
 				1AFC71BC192382BB003B85FB /* main.m in Sources */,
-				1AFC71C0192385F3003B85FB /* KeyboardStateScroller.m in Sources */,
+				4C0593D91932D1D800BFD714 /* IHKeyboardAvoiding.m in Sources */,
 				1AFC71BB192382BB003B85FB /* IHViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -1,5 +1,5 @@
 //
-// Prefix header for all source files of the 'IHKeyboardStateScroller' target in the 'IHKeyboardStateScroller' project
+// Prefix header for all source files of the 'IHKeyboardAvoiding' target in the 'IHKeyboardAvoiding' project
 //
 
 #import <Availability.h>

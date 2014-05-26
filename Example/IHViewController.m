@@ -1,13 +1,13 @@
 //
 //  IHViewController.m
-//  IHKeyboardStateScroller
+//  IHKeyboardAvoiding
 //
 //  Created by Fraser Scott-Morrison on 18/04/13.
 //  Copyright (c) 2013 Idle Hands Apps. All rights reserved.
 //
 
 #import "IHViewController.h"
-#import "KeyboardStateScroller.h"
+#import "IHKeyboardAvoiding.h"
 
 @interface IHViewController ()
 
@@ -22,7 +22,7 @@
     
     self.scrollingView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"diamond_upholstery"]];
     
-    [KeyboardStateScroller setViewToScroll:self.scrollingView withTarget:self.focusView];
+    [IHKeyboardAvoiding setViewToScroll:self.scrollingView withTarget:self.focusView];
     
 }
 
