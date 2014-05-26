@@ -11,17 +11,17 @@
 @implementation IHKeyboardAvoiding
 
 static NSMutableArray *_targetViews;
-static UIView *_scrollingView;
+static UIView *_avoidingView;
 static NSMutableArray *_updatedConstraints;
 static NSMutableArray *_updatedConstraintConstants;
 
 static BOOL _isKeyboardVisible;
-static BOOL _scrollViewUsesAutoLayout;
+static BOOL _avoidingViewUsesAutoLayout;
 static int _buffer = 0;
 static int _padding = 0;
-static float _defaultAnimationDuration = 0.3; // If keyboard is not animating, animate the scrollingView anyway
-static KeyboardScroll _keyboardScrollType = KeyboardScrollMinimum;
-static float _minimumScrollDuration;
+static float _defaultAnimationDuration = 0.3; // If keyboard is not animating, animate the avoiding view anyway
+static KeyboardAvoidingMode _keyboardAvoidingMode = KeyboardAvoidingModeMinimum;
+static float _minimumAnimationDuration;
 
 + (void)didChange:(NSNotification *)notification
 {
@@ -45,7 +45,7 @@ static float _minimumScrollDuration;
         }
     }
     
-    // calculate if we are to scroll up the scrollingView
+    // calculate if we are to move up the avoiding view
     if (isPortrait) {
         if (keyboardFrame.origin.y == 0 || (keyboardFrame.origin.y + keyboardFrame.size.height == windowFrame.size.height)) {
             isKeyBoardShowing = YES;
@@ -97,22 +97,22 @@ static float _minimumScrollDuration;
                     float displacement = ( isPortrait ? -keyboardFrame.size.height : -keyboardFrame.size.width);
                     float delay = 0;
                     
-                    switch (_keyboardScrollType) {
-                        case KeyboardScrollMaximum:
+                    switch (_keyboardAvoidingMode) {
+                        case KeyboardAvoidingModeMaximum:
                         {
-                            _minimumScrollDuration = animationDuration;
+                            _minimumAnimationDuration = animationDuration;
                             break;
                         }
-                        case KeyboardScrollMinimumDelayed:
+                        case KeyboardAvoidingModeMinimumDelayed:
                         {
                             float minimumDisplacement = fmaxf(displacement, diff);
-                            _minimumScrollDuration = animationDuration * (minimumDisplacement / displacement);
+                            _minimumAnimationDuration = animationDuration * (minimumDisplacement / displacement);
                             displacement = minimumDisplacement - _padding;
-                            delay = (animationDuration - _minimumScrollDuration);
-                            animationDuration = _minimumScrollDuration;
+                            delay = (animationDuration - _minimumAnimationDuration);
+                            animationDuration = _minimumAnimationDuration;
                             break;
                         }
-                        case KeyboardScrollMinimum:
+                        case KeyboardAvoidingModeMinimum:
                         default:
                         {
                             float minimumDisplacement = fmaxf(displacement, diff);
@@ -121,27 +121,27 @@ static float _minimumScrollDuration;
                         }
                     }
                     
-                    if (_scrollViewUsesAutoLayout) { // if view uses constrains
-                        for (NSLayoutConstraint *constraint in _scrollingView.superview.constraints) {
-                            if (constraint.secondItem == _scrollingView && (constraint.secondAttribute == NSLayoutAttributeCenterY || constraint.secondAttribute == NSLayoutAttributeTop || constraint.secondAttribute == NSLayoutAttributeBottom)) {
+                    if (_avoidingViewUsesAutoLayout) { // if view uses constrains
+                        for (NSLayoutConstraint *constraint in _avoidingView.superview.constraints) {
+                            if (constraint.secondItem == _avoidingView && (constraint.secondAttribute == NSLayoutAttributeCenterY || constraint.secondAttribute == NSLayoutAttributeTop || constraint.secondAttribute == NSLayoutAttributeBottom)) {
                                 [_updatedConstraints addObject:constraint];
                                 [_updatedConstraintConstants addObject:[NSNumber numberWithFloat:constraint.constant]];
                                 constraint.constant -= displacement;
                                 break;
                             }
                         }
-                        [_scrollingView.superview setNeedsUpdateConstraints];
+                        [_avoidingView.superview setNeedsUpdateConstraints];
                     }
 
                     [UIView animateWithDuration:animationDuration
                                           delay:delay
                                         options:UIViewAnimationOptionCurveLinear
                                      animations:^{
-                                         if (_scrollViewUsesAutoLayout) {
-                                             [_scrollingView.superview layoutIfNeeded]; // to animate constraint changes
+                                         if (_avoidingViewUsesAutoLayout) {
+                                             [_avoidingView.superview layoutIfNeeded]; // to animate constraint changes
                                          }
                                          else {
-                                             _scrollingView.transform = CGAffineTransformMakeTranslation(0, displacement);
+                                             _avoidingView.transform = CGAffineTransformMakeTranslation(0, displacement);
                                          }
                                      }
                                      completion:nil];
@@ -154,18 +154,18 @@ static float _minimumScrollDuration;
     else if (_isKeyboardVisible) {
         // hiding, undocking or splitting
         
-        switch (_keyboardScrollType) {
-            case KeyboardScrollMaximum:
+        switch (_keyboardAvoidingMode) {
+            case KeyboardAvoidingModeMaximum:
             {
                 
                 break;
             }
-            case KeyboardScrollMinimumDelayed:
+            case KeyboardAvoidingModeMinimumDelayed:
             {
-                animationDuration = _minimumScrollDuration;
+                animationDuration = _minimumAnimationDuration;
                 break;
             }
-            case KeyboardScrollMinimum:
+            case KeyboardAvoidingModeMinimum:
             default:
             {
                 break;
@@ -173,22 +173,22 @@ static float _minimumScrollDuration;
         }
         
         // restore state
-        if (_scrollViewUsesAutoLayout) { // if view uses constrains
+        if (_avoidingViewUsesAutoLayout) { // if view uses constrains
             for (int i = 0; i < _updatedConstraints.count; i++) {
                 NSLayoutConstraint *updatedConstraint = [_updatedConstraints objectAtIndex:i];
                 float updatedConstraintConstant = [[_updatedConstraintConstants objectAtIndex:i] floatValue];
                 updatedConstraint.constant = updatedConstraintConstant;
                 
             }
-            [_scrollingView setNeedsUpdateConstraints]; // to animate constraint changes
+            [_avoidingView setNeedsUpdateConstraints]; // to animate constraint changes
         }
         
         [UIView animateWithDuration:animationDuration animations:^{
-            if (_scrollViewUsesAutoLayout) {
-                [_scrollingView.superview layoutIfNeeded];
+            if (_avoidingViewUsesAutoLayout) {
+                [_avoidingView.superview layoutIfNeeded];
             }
             else {
-                _scrollingView.transform = CGAffineTransformIdentity;
+                _avoidingView.transform = CGAffineTransformIdentity;
             }
         } completion:^(BOOL finished){
             [_updatedConstraints removeAllObjects];
@@ -199,14 +199,14 @@ static float _minimumScrollDuration;
     _isKeyboardVisible = CGRectContainsRect(windowFrame, keyboardFrame);
 }
 
-+ (void)setViewToScroll:(UIView *)scrollingView withTarget:(UIView *)targetView;
++ (void)setAvoidingView:(UIView *)avoidingView withTarget:(UIView *)targetView;
 {
     [self init];
     
     [_targetViews removeAllObjects];
     [_targetViews addObject:targetView];
-    _scrollingView = scrollingView;
-    _scrollViewUsesAutoLayout = _scrollingView.superview.constraints.count > 0;
+    _avoidingView = avoidingView;
+    _avoidingViewUsesAutoLayout = _avoidingView.superview.constraints.count > 0;
 }
 
 + (void)addTarget:(UIView *)targetView;
@@ -221,7 +221,7 @@ static float _minimumScrollDuration;
 
 + (void)removeAll {
     _targetViews = nil;
-    _scrollingView = nil;
+    _avoidingView = nil;
 }
 
 + (BOOL)isKeyboardVisible {
@@ -232,12 +232,12 @@ static float _minimumScrollDuration;
     _buffer = buffer;
 }
 
-+ (void)setScrollPadding:(int)padding {
++ (void)setPadding:(int)padding {
     _padding = padding;
 }
 
-+ (void)setMinimumScrollMode:(KeyboardScroll)KeyboardScrollType {
-    _keyboardScrollType = KeyboardScrollType;
++ (void)setKeyboardAvoidingMode:(KeyboardAvoidingMode)keyboardAvoidingMode {
+    _keyboardAvoidingMode = keyboardAvoidingMode;
 }
 
 + (void)init {

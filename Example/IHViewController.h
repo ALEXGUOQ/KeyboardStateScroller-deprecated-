@@ -10,8 +10,8 @@
 
 @interface IHViewController : UIViewController <UITextFieldDelegate>
 
-@property (nonatomic, strong) IBOutlet UIView* focusView;
-@property (nonatomic, strong) IBOutlet UIView* scrollingView;
+@property (nonatomic, strong) IBOutlet UIView* targetView;
+@property (nonatomic, strong) IBOutlet UIView* avoidingView;
 @property (nonatomic, strong) IBOutlet UITextField* textField1;
 @property (nonatomic, strong) IBOutlet UITextField* textField2;
 

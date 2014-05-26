@@ -20,9 +20,9 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
     
-    self.scrollingView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"diamond_upholstery"]];
+    self.avoidingView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"diamond_upholstery"]];
     
-    [IHKeyboardAvoiding setViewToScroll:self.scrollingView withTarget:self.focusView];
+    [IHKeyboardAvoiding setAvoidingView:self.avoidingView withTarget:self.targetView];
     
 }
 
