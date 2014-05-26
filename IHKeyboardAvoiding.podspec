@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
-  s.name             = 'KeyboardStateScroller'
-  s.version          = '0.1.1'
+  s.name             = 'IHKeyboardAvoiding'
+  s.version          = '1.0.0'
   s.summary          = 'IHKeyboardAvoiding is a keyboard listener that will move any UIView up if the keyboard is being shown, and vice versa'
   s.homepage         = 'https://github.com/IdleHandsApps/KeyboardStateScroller/'
   s.description      = <<-DESC
