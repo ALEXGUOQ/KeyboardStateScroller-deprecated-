@@ -3,34 +3,40 @@ An elegant solution for keeping any UIView visible when the keyboard is being sh
 
 ## Description
 
-KeyboardStateScroller is a keyboard listener that will translate any UIView up if the keyboard is being shown, and vice versa.  
-Two views are registered with KeyboardStateScroller, the UIView to translate and one or more target UIViews.  If a targetView's frame will be intersected by the keyboard, then the translating View will animate up just above the keyboard.
+IHKeyboardAvoiding will translate any UIView up when the keyboard is being shown, then return it when the keyboard is hidden.  
+Two views are registered with IHKeyboardAvoiding, the 'avoiding' UIView to translate and one or more 'target' UIViews.  If a target view's frame will be intersected by the keyboard, then the avoiding view will move up just above the keyboard.
 
-Although called a scroller, no UIScrollView is used. If Autolayout is used then the constraints are animated, otherwise a CGAffine translation is done.
+No UIScrollView is used. If Autolayout is used then the constraints are animated, otherwise a CGAffine translation is done.
 
-## Features:
+## Supported Features:
 
-KeyboardStateScroller works with iPhone and iPad keyboards and accommodates split and undocked iPad keyboard states in all orentations
+* iPhone keyboard
+* iPad docked keyboard
+* iPad undocked keyboard
+* iPad split keyboard
+* landscape & protrait
+* autolayout
+* traditional layout
 
 ## How to use:
 
-To set a view to scroll
+To set the view to move
 ```objective-c
-[IHKeyboardStateListener setViewToScroll:(UIView *)scrollingView with:(UIView *)targetView];
+[IHKeyboardAvoiding setAvoidingView:(UIView *)avoidingView with:(UIView *)targetView];
 ```
 To add another target
 ```objective-c
-[IHKeyboardStateListener addTarget:(UIView *)targetView];
+[IHKeyboardAvoiding addTarget:(UIView *)targetView];
 ```
 
 Parameters   
-```(UIView *)scrollingView```   The view to scroll, usually the background view  
-```(UIView *)targetView```      If a targetView's frame will be intersected by the keyboard, then the scrollingView will be scrolled.
+```(UIView *)avoidingView```   The view to move above the keyboard, usually the background view  
+```(UIView *)targetView```      If a targetView's frame will be intersected by the keyboard, then the avoidingView will be moved.
 
 Optional methods    
 ```(BOOL)isKeyboardVisible```   A convenience method to check if the keyboard is visible  
-```(void)setBuffer:(int)buffer``` Scrolling will be triggered if the keyboard is within [buffer] points of the targetView's frame.  Default buffer is 0  
-```(void)setScrollPadding:(int)buffer``` The padding to put between the keyboard and scrolling view.  Default padding is 0
+```(void)setBuffer:(int)buffer``` Avoiding will be triggered if the keyboard is within [buffer] points of the targetView's frame.  Default buffer is 0  
+```(void)setPadding:(int)buffer``` The padding to put between the keyboard and avoiding view.  Default padding is 0
 ## Similar Keyboard avoiding solutions:
 
 https://github.com/michaeltyson/TPKeyboardAvoiding (UIScrollView based)  
