@@ -26,3 +26,7 @@ KeyboardStateScroller.xcodeproj/xcuserdata/fraser.xcuserdatad/xcschemes/xcscheme
 *.xcscheme
 
 *.xcsettings
+
+IHKeyboardAvoiding.xcodeproj/xcuserdata/fraser.xcuserdatad/xcschemes/xcschememanagement.plist
+
+*.xcuserstate

@@ -162,7 +162,7 @@
 				LastUpgradeCheck = 0460;
 				ORGANIZATIONNAME = "Idle Hands Apps";
 			};
-			buildConfigurationList = 1A759CE317213F3900864F0A /* Build configuration list for PBXProject "KeyboardStateScroller" */;
+			buildConfigurationList = 1A759CE317213F3900864F0A /* Build configuration list for PBXProject "IHKeyboardAvoiding" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -322,7 +322,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		1A759CE317213F3900864F0A /* Build configuration list for PBXProject "KeyboardStateScroller" */ = {
+		1A759CE317213F3900864F0A /* Build configuration list for PBXProject "IHKeyboardAvoiding" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				1A759D0C17213F3900864F0A /* Debug */,
