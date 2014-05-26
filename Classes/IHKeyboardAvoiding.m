@@ -6,9 +6,9 @@
 //  Copyright (c) 2013 Idle Hands Apps. All rights reserved.
 //
 
-#import "KeyboardStateScroller.h"
+#import "IHKeyboardAvoiding.h"
 
-@implementation KeyboardStateScroller
+@implementation IHKeyboardAvoiding
 
 static NSMutableArray *_targetViews;
 static UIView *_scrollingView;
