@@ -15,7 +15,7 @@ enum KeyboardScroll {
 }
 typedef KeyboardScroll;
 
-@interface KeyboardStateScroller : NSObject
+@interface IHKeyboardAvoiding : NSObject
 
 + (void)setMinimumScrollMode:(KeyboardScroll)KeyboardScrollType;
 
