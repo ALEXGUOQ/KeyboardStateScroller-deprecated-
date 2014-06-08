@@ -183,7 +183,10 @@ static float _minimumAnimationDuration;
             [_avoidingView setNeedsUpdateConstraints]; // to animate constraint changes
         }
         
-        [UIView animateWithDuration:animationDuration animations:^{
+        [UIView animateWithDuration:animationDuration + 0.075
+                              delay:0
+                            options:[[[notification userInfo] objectForKey:UIKeyboardAnimationDurationUserInfoKey] integerValue]
+                         animations:^{
             if (_avoidingViewUsesAutoLayout) {
                 [_avoidingView.superview layoutIfNeeded];
             }
@@ -220,7 +223,7 @@ static float _minimumAnimationDuration;
 }
 
 + (void)removeAll {
-    _targetViews = nil;
+    [_targetViews removeAllObjects];
     _avoidingView = nil;
 }
 
